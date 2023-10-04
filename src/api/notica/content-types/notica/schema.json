@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "noticas",
+  "info": {
+    "singularName": "notica",
+    "pluralName": "noticas",
+    "displayName": "Noticia",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "Descripcion": {
+      "type": "string",
+      "required": true
+    },
+    "Fecha": {
+      "type": "date",
+      "required": true
+    },
+    "Autor": {
+      "type": "string",
+      "required": true
+    },
+    "Cuerpo": {
+      "type": "richtext",
+      "required": true
+    },
+    "Imagen": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Descargo": {
+      "type": "string"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Titulo",
+      "required": true
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "noticas"
+    }
+  }
+}
