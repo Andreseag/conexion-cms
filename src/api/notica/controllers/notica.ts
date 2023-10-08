@@ -4,4 +4,16 @@
 
 import { factories } from '@strapi/strapi'
 
-export default factories.createCoreController('api::notica.notica');
+export default factories.createCoreController('api::notica.notica', ({ strapi }) =>  ({
+  async findOne(ctx) {
+    const { id } = ctx.params;
+
+    const entity = await strapi.db.query('api::notica.notica').findOne({ 
+      where: { slug: id }
+    });
+
+    const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+
+    return this.transformResponse(sanitizedEntity);
+  }  
+}));

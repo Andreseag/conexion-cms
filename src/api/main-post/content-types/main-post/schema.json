@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "noticas",
+  "collectionName": "main_posts",
   "info": {
-    "singularName": "notica",
-    "pluralName": "noticas",
-    "displayName": "Noticia",
-    "description": ""
+    "singularName": "main-post",
+    "pluralName": "main-posts",
+    "displayName": "Main Post"
   },
   "options": {
     "draftAndPublish": true
@@ -13,50 +12,42 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string",
-      "unique": true,
-      "required": true
+      "type": "string"
     },
     "description": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "date": {
-      "type": "date",
-      "required": true
+      "type": "date"
     },
     "author": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "body": {
-      "type": "richtext",
-      "required": true
+      "type": "richtext"
     },
     "image": {
-      "type": "media",
-      "multiple": true,
-      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": true
     },
     "discharges": {
-      "type": "string"
+      "type": "text"
     },
     "slug": {
       "type": "uid",
-      "required": true,
       "targetField": "title"
     },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
-      "mappedBy": "noticas"
+      "inversedBy": "main_posts"
     }
   }
 }
