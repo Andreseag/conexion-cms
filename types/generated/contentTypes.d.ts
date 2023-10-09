@@ -786,6 +786,8 @@ export interface ApiNoticaNotica extends Schema.CollectionType {
       'manyToMany',
       'api::category.category'
     >;
+    videoUrl: Attribute.String;
+    isMain: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
