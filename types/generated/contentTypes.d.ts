@@ -696,11 +696,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'manyToMany',
       'api::notica.notica'
     >;
-    main_posts: Attribute.Relation<
-      'api::category.category',
-      'manyToMany',
-      'api::main-post.main-post'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -712,48 +707,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::category.category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiMainPostMainPost extends Schema.CollectionType {
-  collectionName: 'main_posts';
-  info: {
-    singularName: 'main-post';
-    pluralName: 'main-posts';
-    displayName: 'Main Post';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.String;
-    date: Attribute.Date;
-    author: Attribute.String;
-    body: Attribute.RichText;
-    image: Attribute.Media;
-    discharges: Attribute.Text;
-    slug: Attribute.UID<'api::main-post.main-post', 'title'>;
-    categories: Attribute.Relation<
-      'api::main-post.main-post',
-      'manyToMany',
-      'api::category.category'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::main-post.main-post',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::main-post.main-post',
       'oneToOne',
       'admin::user'
     > &
@@ -823,7 +776,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
-      'api::main-post.main-post': ApiMainPostMainPost;
       'api::notica.notica': ApiNoticaNotica;
     }
   }

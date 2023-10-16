@@ -26,12 +26,6 @@
       "relation": "manyToMany",
       "target": "api::notica.notica",
       "inversedBy": "categories"
-    },
-    "main_posts": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::main-post.main-post",
-      "mappedBy": "categories"
     }
   }
 }
