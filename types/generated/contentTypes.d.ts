@@ -727,7 +727,7 @@ export interface ApiNoticaNotica extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String & Attribute.Required & Attribute.Unique;
-    description: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
     date: Attribute.Date & Attribute.Required;
     author: Attribute.String & Attribute.Required;
     body: Attribute.RichText & Attribute.Required;
